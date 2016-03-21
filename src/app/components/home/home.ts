@@ -1,4 +1,10 @@
 import {Component} from 'angular2/core';
+import {
+  Router,
+  RouterLink,
+  RouteParams,
+} from 'angular2/router';
+
 
 @Component({
     selector:'home',

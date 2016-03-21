@@ -11,6 +11,8 @@ import { ROUTER_DIRECTIVES,
 } from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http'
 
+import {HomeComponent as Home} from './home/home';
+
 @Component({
     selector: 'app',
     directives: [ROUTER_DIRECTIVES],
@@ -18,7 +20,8 @@ import {HTTP_PROVIDERS} from 'angular2/http'
     styleUrls: ['app/components/app.css']
 })
 @RouteConfig([
-    { path: '/', redirectTo:['/Login'], name: 'root', useAsDefault:true},
+    { path: '/', redirectTo:['/Home'], name: 'root', useAsDefault:true},
+    { path: '/Home', component: Home, name: 'Home'},
 ])
 export class AppComponent {
   
