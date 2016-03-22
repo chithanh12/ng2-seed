@@ -1,4 +1,5 @@
 /// <reference path="../../../node_modules/angular2/typings/browser.d.ts" />
+/// <reference path="../../../node_modules/rxjs/Rx.d.ts" />
 import {Component, provide} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 import { ROUTER_DIRECTIVES,
@@ -10,8 +11,12 @@ import { ROUTER_DIRECTIVES,
   RouteConfig
 } from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http'
+import 'rxjs/Rx'
 
 import {HomeComponent as Home} from './home/home';
+import {SimpleHttpComponent as SimpleHttp} from './simpleHttp/SimpleHttpComponent'
+import {YouTubeService, YouTubeServiceInjectables} from '../services/YouTubeService'
+import {YouTubeSearchComponent as YouTube} from './youtube/YouTubeComponent'
 
 @Component({
     selector: 'app',
@@ -22,6 +27,8 @@ import {HomeComponent as Home} from './home/home';
 @RouteConfig([
     { path: '/', redirectTo:['/Home'], name: 'root', useAsDefault:true},
     { path: '/Home', component: Home, name: 'Home'},
+    {path:'/SimpleHttp', component: SimpleHttp, name:'SimpleHttp'},
+    {path:'/youTube', component: YouTube, name:'YouTube'}
 ])
 export class AppComponent {
   
@@ -29,6 +36,8 @@ export class AppComponent {
 bootstrap(AppComponent, 
     [ ROUTER_PROVIDERS,
       HTTP_PROVIDERS,
+      YouTubeService, 
+      YouTubeServiceInjectables,
       provide(LocationStrategy, {useClass: HashLocationStrategy})
    ]
 );

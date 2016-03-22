@@ -12,5 +12,9 @@
   },
     "exclude": [
         "node_modules"
-    ]
+    ],
+    "filesGlob": [
+    "./app/**/*.ts",
+    "!./node_modules/**/*.ts"
+  ]
 }

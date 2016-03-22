@@ -9,9 +9,11 @@ module.exports = function(gulp, plugins, config) {
         ],
         vendor: {
             base: 'node_modules',
-            typeScript: [                
+            typeScript: [      
+               // 'src/vendor.ts'          
             ],
             javaScript: [
+                
                 'node_modules/es6-promise/dist/es6-promise.js',
                 'node_modules/es6-module-loader/dist/es6-module-loader-dev.js',
                 'node_modules/reflect-metadata/Reflect.js',
@@ -37,7 +39,7 @@ module.exports = function(gulp, plugins, config) {
 
     function buildDev() {
         /* Project JS */
-        var jsStream = gulp.src(script.javaScript, {base: script.base})
+        var jsStream = gulp.src(script.javaScript)//, {base: script.base})
             .pipe(gulp.dest(config.output));
 
         /* Project TS */
